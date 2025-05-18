@@ -1,43 +1,43 @@
 # Language Cheat Sheet generator based on travel type
 ## 🔑 Key Features
 
-- Language Translator
+## - Language Translator
 
- -Supports 50+ global languages
+ - Supports 50+ global languages
 
- -Auto-detects input language
+ - Auto-detects input language
 
- -Real-time character count
+ - Real-time character count
 
- -Language swap feature
+ - Language swap feature
 
- -Utilizes unofficial Google Translate API
+ - Utilizes unofficial Google Translate API
 
 
-  🧭 Adventure Travel Cheat Sheets
-Categorized phrases:
+## 🧭 Adventure Travel Cheat Sheets
+-- Categorized phrases:
 
-Directions, Outdoor Gear, Food, Emergencies
+  - Directions, Outdoor Gear, Food, Emergencies
 
-Auto-translated based on user location
+  - Auto-translated based on user location
 
-Modal view showing original + translated phrases
+  - Modal view showing original + translated phrases
 
-💼 Business Travel Cheat Sheets
-Phrases for:
+## 💼 Business Travel Cheat Sheets
+-- Phrases for:
 
-Meetings, Travel, Accommodation, Greetings
+ - Meetings, Travel, Accommodation, Greetings
 
-Organized in categories with modal views
+ - Organized in categories with modal views
 
-Instant translation included
+ - Instant translation included
 
-🌍 Smart Localization
-Detects user’s country
+## 🌍 Smart Localization
+-- Detects user’s country
 
-Maps country to language (e.g., Japan → ja)
+ - Maps country to language (e.g., Japan → ja)
 
-Presents most relevant translations automatically
+ - Presents most relevant translations automatically
 
 
 
