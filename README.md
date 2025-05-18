@@ -48,11 +48,3 @@ Adventure cheat sheet category list and modal view
 
 Business cheat sheet modal
 
-Responsive layout on mobile and desktop
-
-
-
----
-
-Let me know if you'd like me to generate the actual README file for this.
-
