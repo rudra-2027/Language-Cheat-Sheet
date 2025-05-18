@@ -1,50 +1,52 @@
-Language Cheat Sheet generator based on travel type
-Features
+# Language Cheat Sheet generator based on travel type
+ ##🔑 Key Features
 
-Language Translator
+#-Language Translator
 
-Auto-detects input language
+-Supports 50+ global languages
 
-Translate between 50+ global languages
+-Auto-detects input language
 
-Real-time character count and language swap
+-Real-time character count
 
-Uses Google Translate API (unofficial)
+-Language swap feature
+
+-Utilizes unofficial Google Translate API
 
 
-Adventure Travel Cheat Sheets
+  🧭 Adventure Travel Cheat Sheets
+Categorized phrases:
 
-Categorized phrases: Directions, Outdoor Gear, Food, Emergencies
+Directions, Outdoor Gear, Food, Emergencies
 
 Auto-translated based on user location
 
-Modal view with original and translated phrases
+Modal view showing original + translated phrases
 
+💼 Business Travel Cheat Sheets
+Phrases for:
 
-Business Travel Cheat Sheets
+Meetings, Travel, Accommodation, Greetings
 
-Phrases for meetings, travel, accommodation, greetings
+Organized in categories with modal views
 
-Category-based modal view with instant translation
+Instant translation included
 
+🌍 Smart Localization
+Detects user’s country
 
-Smart Localization
+Maps country to language (e.g., Japan → ja)
 
-Detects user’s country to present relevant language translations
-
-Country-to-language mapping (e.g., "Japan" → "ja")
+Presents most relevant translations automatically
 
 
 
 Screenshots
+![image](https://github.com/user-attachments/assets/a97bcb6f-8927-4d5d-818f-f85ce4dc2962)
+![image](https://github.com/user-attachments/assets/9573e967-e6ad-4497-9564-88a329ba21f8)
+![image](https://github.com/user-attachments/assets/5b13515b-5316-4065-b6cd-99dc53fa6854)
 
-> Include screenshots of the following:
 
 
 
-Translator interface with language selection and swap feature
-
-Adventure cheat sheet category list and modal view
-
-Business cheat sheet modal
 
