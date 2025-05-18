@@ -3,7 +3,6 @@ const modal = document.getElementById("modal");
 const container = document.querySelector(".container");
 const closeBtn = document.getElementById("closeModal");
 const alertBox = document.getElementById("customAlert");
-// const airplane = document.getElementById("airplane");
 const modalContent = document.getElementById("modalContent");
 const nextPage = document.getElementById("nextPage");
 
@@ -41,7 +40,6 @@ document.getElementById("submitInfo").addEventListener("click", () => {
     const redirectPage = pageMap[travelType] || "default.html";
     const url = `${redirectPage}?country=${encodeURIComponent(country)}`;
 
-    const container = document.querySelector(".container");
     container.style.transition = "opacity 0.3s ease-in";
     container.style.opacity = "0";
 
@@ -50,8 +48,17 @@ document.getElementById("submitInfo").addEventListener("click", () => {
     }, 300);
 });
 
-
 closeBtn.addEventListener("click", () => {
     modal.classList.add("hidden");
     container.classList.remove("blur");
+});
+
+
+window.addEventListener("pageshow", () => {
+    if (container) {
+        container.style.opacity = "1";
+        container.classList.remove("blur");
+    }
+    if (modal) modal.classList.add("hidden");
+    if (alertBox) alertBox.classList.add("hidden");
 });
