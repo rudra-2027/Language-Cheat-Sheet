@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Study Abroad Language Cheat Sheet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main">
+        <h1 class="Info">
+            Study Abroad Language Cheat Sheet for <span id="countryName">...</span>
+        </h1>
+        <div class="containerInfo">
+            <div class="categoryContainer"> School & University
+                <span class="hidden">I am a student</span>
+                <span class="hidden">I have a class at 9 AM</span>
+                <span class="hidden">Where is the classroom?</span>
+                <span class="hidden">Can you help me with this assignment?</span>
+                <span class="hidden">I don’t understand</span>
+            </div>
+            <div class="categoryContainer">Accommodation & Daily Life
+                <span class="hidden">I live in a dorm</span>
+                <span class="hidden">Where is the laundry room?</span>
+                <span class="hidden">Is Wi-Fi available?</span>
+                <span class="hidden">I need to buy groceries</span>
+            </div>
+            <div class="categoryContainer">Essentials & Shopping
+                <span class="hidden">How much is this?</span>
+                <span class="hidden">Do you have this in another size?</span>
+                <span class="hidden">I’m just looking</span>
+            </div>
+            <div class="categoryContainer">Transportation
+                <span class="hidden">Where is the nearest bus stop?</span>
+                <span class="hidden">I need a student metro pass</span>
+                <span class="hidden">What time is the last train?</span>
+            </div>
+            <div class="categoryContainer">Social & Everyday Phrases
+                <span class="hidden">Nice to meet you</span>
+                <span class="hidden">What’s your name?</span>
+                <span class="hidden">Can we speak in English?</span>
+            </div>
+            <div class="categoryContainer">Emergencies
+                <span class="hidden">Help!</span>
+                <span class="hidden">Call the police!</span>
+                <span class="hidden">I am lost</span>
+                <span class="hidden">I need a doctor</span>
+            </div>
+        </div>
+        <button type="button" onclick="location.href='../Transaltor/index.html'" class="Transcription">
+            For Another Transcription
+        </button>
+    </div>
+
+    <div class="modals" id="modal">
+        <div class="modals-content" id="modalsContent">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <h2>Category</h2>
+            <div id="phrases"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script type="module">
+        import getCountryName from "../getCountryName.js";
+
+        function countryToLangCode(country) {
+            const map = {
+                "Spain": "es",
+                "France": "fr",
+                "Germany": "de",
+                "China": "zh-CN",
+                "Japan": "ja",
+                "India": "hi",
+                "Russia": "ru",
+                "Italy": "it",
+                "Brazil": "pt",
+                "Korea": "ko",
+                "Mexico": "es",
+                "Canada": "en",
+                "Egypt": "ar",
+                "United States": "en",
+                "United Kingdom": "en",
+                "Australia": "en",
+                "Argentina": "es",
+                "Colombia": "es",
+                "Chile": "es",
+                "Peru": "es",
+                "Portugal": "pt",
+                "Netherlands": "nl",
+                "Belgium": "nl",
+                "Switzerland": "de",
+                "Austria": "de",
+                "Sweden": "sv",
+                "Norway": "no",
+                "Denmark": "da",
+                "Finland": "fi",
+                "Poland": "pl",
+                "Czech Republic": "cs",
+                "Slovakia": "sk",
+                "Hungary": "hu",
+                "Turkey": "tr",
+                "Saudi Arabia": "ar",
+                "United Arab Emirates": "ar",
+                "Iran": "fa",
+                "Pakistan": "ur",
+                "Bangladesh": "bn",
+                "Indonesia": "id",
+                "Philippines": "tl",
+                "Vietnam": "vi",
+                "Thailand": "th",
+                "Malaysia": "ms",
+                "New Zealand": "en",
+                "South Africa": "en",
+                "Nigeria": "en",
+                "Kenya": "en",
+                "Ghana": "en",
+                "Morocco": "ar",
+                "Israel": "he",
+                "Greece": "el",
+                "Ireland": "en",
+                "Iceland": "is",
+                "Luxembourg": "lb",
+                "Lebanon": "ar",
+                "Syria": "ar",
+                "Jordan": "ar",
+                "Qatar": "ar",
+                "Kuwait": "ar",
+                "Oman": "ar",
+                "Bahrain": "ar",
+                "-": "en"
+            };
+            return map[country] || "en";
+        }
+
+
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            const countryName = getCountryName();
+
+            document.getElementById("countryName").innerText =
+                countryName === "-" ? "Your Country" : countryName;
+
+            const targetLang = countryToLangCode(countryName);
+            const sourceLang = "en";
+
+            const categoryContainers = document.querySelectorAll(".categoryContainer");
+            const modal = document.getElementById("modal");
+            const closeModalBtn = document.getElementById("closeModal");
+            const phrasesDiv = document.getElementById("phrases");
+            const modalTitle = document.querySelector("#modalsContent h2");
+
+            async function translateText(text, source, target) {
+                const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${source}&tl=${target}&dt=t&dt=rm&q=${encodeURIComponent(text)}`;
+                try {
+                    const response = await fetch(url);
+                    const json = await response.json();
+                    const translation = json[0].map(item => item[0]).join("");
+                    const transcription = json[0].map(item => item[3]).filter(Boolean).join(" ");
+                    return { translation, transcription };
+                } catch (err) {
+                    console.error("Translate error:", err);
+                    return { translation: text, transcription: "" };
+                }
+            }
+
+            async function translateAll() {
+                for (const container of categoryContainers) {
+                    const spans = container.querySelectorAll("span.hidden");
+                    for (const span of spans) {
+                        const original = span.textContent.trim();
+                        span.setAttribute("data-original", original);
+
+                        if (targetLang === sourceLang) {
+                            span.textContent = original;
+                            span.setAttribute("data-translation", original);
+                            span.setAttribute("data-transcription", "");
+                            span.setAttribute("title", original);
+                        } else {
+                            const { translation, transcription } = await translateText(original, sourceLang, targetLang);
+                            const displayText = transcription ? `${translation} (${transcription})` : translation;
+
+                            span.textContent = displayText;
+                            span.setAttribute("data-translation", translation);
+                            span.setAttribute("data-transcription", transcription);
+                            span.setAttribute("title", displayText);
+                        }
+
+                        span.addEventListener("mouseenter", () => {
+                            if (targetLang !== sourceLang) {
+                                const trans = span.getAttribute("data-translation") || "";
+                                const pron = span.getAttribute("data-transcription") || "";
+                                span.textContent = pron ? `${trans} (${pron})` : trans;
+                            }
+                        });
+
+                        span.addEventListener("mouseleave", () => {
+                            if (targetLang !== sourceLang) {
+                                span.textContent = span.getAttribute("title") || span.getAttribute("data-translation");
+                            }
+                        });
+                    }
+                }
+            }
+
+            categoryContainers.forEach(container => {
+                container.addEventListener("click", () => {
+                    modal.classList.add("show");
+                    modalTitle.textContent = container.firstChild.textContent.trim();
+                    phrasesDiv.innerHTML = "";
+
+                    const spans = container.querySelectorAll("span.hidden");
+                    spans.forEach(span => {
+                        const original = span.getAttribute("data-original") || span.textContent;
+                        const translated = span.getAttribute("data-translation") || span.textContent;
+                        const transcription = span.getAttribute("data-transcription") || "";
+                        const p = document.createElement("p");
+                        p.classList.add("modal-phrase");
+                        p.textContent = `${original} → ${translated}${transcription ? " (" + transcription + ")" : ""}`;
+                        phrasesDiv.appendChild(p);
+                    });
+                });
+            });
+
+            closeModalBtn.addEventListener("click", () => {
+                modal.classList.remove("show");
+            });
+
+            modal.addEventListener("click", e => {
+                if (e.target === modal) {
+                    modal.classList.remove("show");
+                }
+            });
+
+            await translateAll();
+        });
+    </script>
+</body>
+
+</html>

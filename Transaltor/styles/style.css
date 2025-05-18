@@ -1,0 +1,162 @@
+/* styles/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 900px;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.dropdown-container {
+    position: relative;
+    width: 100%;
+    max-width: 250px;
+    margin-bottom: 1rem;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f4f6f8;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    transition: border 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+    border-color: #6c63ff;
+}
+
+.dropdown-toggle ion-icon {
+    margin: 0 0.5rem;
+    color: #6c63ff;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+    display: none;
+}
+
+.dropdown-container:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu .option {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.dropdown-menu .option:hover,
+.dropdown-menu .option.active {
+    background-color: #e0e7ff;
+    color: #1e3a8a;
+}
+
+.text-area {
+    position: relative;
+}
+
+textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.75rem;
+    resize: none;
+    font-size: 1rem;
+    background-color: #f9fafb;
+    transition: border-color 0.3s ease;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #6c63ff;
+    background-color: #fff;
+}
+
+textarea[disabled] {
+    background-color: #f1f1f1;
+    color: #555;
+}
+
+.chars {
+    position: absolute;
+    bottom: 0.75rem;
+    right: 1rem;
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.swap-position {
+    width: 50px;
+    height: 50px;
+    background-color: #6c63ff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 6px 14px rgba(108, 99, 255, 0.3);
+}
+
+.swap-position:hover {
+    background-color: #574fd2;
+}
