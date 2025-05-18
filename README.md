@@ -1,7 +1,7 @@
 # Language Cheat Sheet generator based on travel type
- 🔑 Key Features
+## 🔑 Key Features
 
--Language Translator
+- Language Translator
 
  -Supports 50+ global languages
 
@@ -45,6 +45,8 @@ Screenshots
 ![image](https://github.com/user-attachments/assets/a97bcb6f-8927-4d5d-818f-f85ce4dc2962)
 ![image](https://github.com/user-attachments/assets/9573e967-e6ad-4497-9564-88a329ba21f8)
 ![image](https://github.com/user-attachments/assets/5b13515b-5316-4065-b6cd-99dc53fa6854)
+![image](https://github.com/user-attachments/assets/229af379-30b5-46a3-9490-4d6399596cc4)
+
 
 
 
