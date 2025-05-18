@@ -1,17 +1,17 @@
 # Language Cheat Sheet generator based on travel type
- ##🔑 Key Features
+ 🔑 Key Features
 
-#-Language Translator
+-Language Translator
 
--Supports 50+ global languages
+ -Supports 50+ global languages
 
--Auto-detects input language
+ -Auto-detects input language
 
--Real-time character count
+ -Real-time character count
 
--Language swap feature
+ -Language swap feature
 
--Utilizes unofficial Google Translate API
+ -Utilizes unofficial Google Translate API
 
 
   🧭 Adventure Travel Cheat Sheets
